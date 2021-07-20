@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro E-soft</title>
+    <link href="{% static 'css/menu.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/crud.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+{% include '../menu.html' %}
+<main>
+  <div class="conteiner">
+    <div class="divFora">
+
+        <form onsubmit="/formulario" id="form-formulario" method="post">
+            {{form}}
+            {% csrf_token %}
+            <input type="submit" id="submit-button" class="submit-button" valor="Alterar">
+
+        </form>
+    </div>
+  </div>
+
+</main>
+
+</body>
+</html>

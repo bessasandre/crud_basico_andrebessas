@@ -1,0 +1,95 @@
+form {
+    margin: 50px;
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+}
+
+form label {
+    display: inline ;
+    text-align: center;
+    font-size: 1.3em;
+    padding: 1em;
+
+}
+
+.submit-button {
+    background: #4974e4;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+
+
+}
+
+.submit-button:hover {
+    background: #496edc;
+    font-weight: bolder;
+    font-size: 1em;
+}
+
+.conteiner{
+
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.conteinerform{
+    padding: 10px;
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+
+}
+
+
+table{
+    margin: 30px;
+    text-align: center;
+
+}
+
+thead {
+    background: #c2cbff ;
+    color: black ;
+    font-weight: normal;
+}
+
+td {
+    margin: 30px;
+    border: 1px solid black;
+    padding: 8px 15px;
+}
+
+ th {
+     border: 1px solid black;
+     padding: 8px 15px;
+ }
+
+.list-button{
+    border: none;
+    border-radius: 5px;
+    padding: 2px 10px;
+    font-size: 1em;
+
+}
+
+
+.editar-button {
+    background: cornflowerblue;
+}
+.apagar-button {
+    background: #7a58bc;
+}
+

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="uf-8">
+    <title>Formulario</title>
+
+    <link href="{% static 'css/menu.css' %}" rel="stylesheet" type="text/css">
+    <link href="{% static 'css/crud.css' %}" rel="stylesheet" type="text/css">
+
+
+</head>
+<body>
+{% include "../menu.html" %}
+<main>
+
+
+
+    <div class="conteiner">
+        <div>
+            {% if formularios_records %}
+            <table>
+                <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Idade</th>
+                    <th>Email</th>
+
+
+
+                </tr>
+
+                </thead>
+                <tbody>
+                {% for formulario in formularios_records %}
+                <tr>
+                    <td>{{formulario.nome}}</td>
+                    <td>{{formulario.sobrenome}}</td>
+                    <td>{{formulario.idade}}</td>
+                    <td>{{formulario.email}}</td>
+                    <td>
+                        <button class="list-button editar-button" onclick="updateItem({{formulario.id}})">Alterar</button>
+                        <button class="list-button apagar-button" onclick="deleteItem({{formulario.id}})">Excluir</button>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+            {% else %}
+            <p> Nenhum dado cadastrado</p>
+            {% endif %}
+
+        </div>
+
+
+        <div class="divFora">
+
+            <form onsubmit="/formulario" id="form-formulario" method="post">
+                {{form.as_p}}
+
+                {% csrf_token %}
+                <input type="submit" id="submit-button" class="submit-button" valor="Enviar">
+
+            </form>
+
+
+
+        </div>
+
+
+
+
+</main>
+<script>
+    function deleteItem(id) {
+        const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+        const request = new Request(
+            "/formulario/delete/"+id,
+            {headers:{'X-CSRFToken': csrftoken}}
+        )
+        fetch(request,{
+            method:'DELETE',
+            mode: 'same-origin'
+        }).then(
+            function (response) {
+                if(response.status===500){
+                    alert("Não foi possível excluir.");
+                } else {
+                    location.replace("/formulario")
+                }
+
+            })
+    }
+
+    function updateItem(id) {
+        location.replace("/formulario/update/"+id);
+    }
+</script>
+</body>
+</html>
+
